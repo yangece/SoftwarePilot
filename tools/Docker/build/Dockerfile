@@ -4,6 +4,8 @@ MAINTAINER Jayson Boubin
 LABEL version="1.0"
 LABEL description="AUAVLinux Dockerfile using Reroutlab Git"
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 #Update Sources
 RUN apt-get update
 
@@ -18,6 +20,9 @@ RUN apt-get install -y git   && \
 #Install python3
 RUN apt-get install -y python3.6 && \
     apt-get install -y python3-pip 
+
+#Upgrade pip
+RUN pip3 install --upgrade pip
 
 #install DLIB and face_recognition
 RUN pip3 install face_recognition
